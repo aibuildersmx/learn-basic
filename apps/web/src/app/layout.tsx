@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Learn | AI Builders México",
-  description: "Learn how to code with AI",
+  description: "Build anything with AI",
 };
 
 export default function RootLayout({
