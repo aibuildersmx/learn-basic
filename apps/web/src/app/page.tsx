@@ -21,7 +21,7 @@ export default function Home() {
           <div className="mx-auto max-w-2xl text-center">
             <div className="mb-6 sm:mb-8 flex justify-center">
               <div className="relative rounded-full px-3 py-1 text-xs sm:text-sm leading-6 text-muted-foreground ring-1 ring-border hover:ring-primary/20 cursor-default">
-                Built with Next.js 15 + Supabase + Clerk + Cursor AI
+                Built with Next.js 15 + Supabase + Cursor AI
               </div>
             </div>
 

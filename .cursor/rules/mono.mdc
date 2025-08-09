@@ -16,7 +16,7 @@ This is a Turborepo monorepo with the following structure:
 
 - **Framework**: Next.js 15 (App Router)
 - **Database**: Supabase (PostgreSQL)
-- **Authentication**: Clerk
+- **Authentication**: Supabase
 - **Package Manager**: pnpm with workspaces
 - **Build System**: Turborepo
 - **Styling**: Tailwind CSS
@@ -55,14 +55,6 @@ This is a Turborepo monorepo with the following structure:
 - Keep sensitive operations server-side
 - Use for database operations only, not authentication, be wary of RLS
 
-## Clerk Authentication
-
-- Use Clerk for all authentication needs
-- Configure middleware in `/apps/web/src/middleware.ts`
-- Use `@clerk/nextjs` hooks for client-side auth state
-- Protect API routes with `auth()` helper
-- Store user metadata in Clerk, not database
-
 ## Best Practices
 
 - Use server components by default
@@ -74,7 +66,6 @@ This is a Turborepo monorepo with the following structure:
 
 ## Common Patterns
 
-- Authentication: Clerk middleware protects routes, use `auth()` in server components
 - Data fetching: Server components for initial data, TanStack Query for client-side
 - Forms: React Hook Form with Zod validation
 - Styling: Tailwind utility classes, shadcn/ui components, avoid custom CSS

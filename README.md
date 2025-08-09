@@ -23,8 +23,7 @@ A production-ready fullstack template optimized for AI-assisted development with
 - **Framework**: Next.js 15 (App Router), React, TypeScript
 - **Styling**: Tailwind CSS, shadcn/ui components
 - **State Management**: Zustand
-- **Authentication**: Clerk (user management & auth)
-- **Database**: Supabase (PostgreSQL)
+- **Database and Authentication**: Supabase (PostgreSQL)
 - **Build System**: Turborepo monorepo, pnpm workspaces
 - **Deployment**: Vercel (recommended)
 
@@ -39,7 +38,6 @@ A production-ready fullstack template optimized for AI-assisted development with
 2. Set up environment variables:
 
    - Copy `.env.example` to `.env.local` in `apps/web/`
-   - Add your Clerk keys (publishable & secret)
    - Add your Supabase URL and anon key
 
 3. Start the database:
