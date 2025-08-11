@@ -26,8 +26,10 @@ import {
   Rocket,
   Info,
   HelpCircle,
+  ArrowRight,
 } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function GettingStartedPage() {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
@@ -61,12 +63,6 @@ export default function GettingStartedPage() {
               Learn to vibe code with Cursor by setting up this tutorial
               monorepo
             </p>
-            <div className="flex justify-center gap-2">
-              <Badge variant="secondary">Next.js 15</Badge>
-              <Badge variant="secondary">Supabase</Badge>
-              <Badge variant="secondary">Turborepo</Badge>
-              <Badge variant="secondary">pnpm</Badge>
-            </div>
           </div>
 
           <Alert className="border-blue-200 bg-blue-50 dark:bg-blue-950/20">
@@ -1011,6 +1007,30 @@ export default function GettingStartedPage() {
               components or help you make modifications!
             </AlertDescription>
           </Alert>
+
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <Rocket className="h-5 w-5 text-primary" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="font-semibold mb-2">Ready for a Challenge?</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Take your skills to the next level! Learn how to set up a
+                    production-ready database with Supabase and implement secure
+                    authentication.
+                  </p>
+                  <Link href="/advanced">
+                    <Button className="group">
+                      Start Advanced Guide
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </TooltipProvider>
