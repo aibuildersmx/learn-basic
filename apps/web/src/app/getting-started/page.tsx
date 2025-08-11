@@ -691,7 +691,42 @@ export default function GettingStartedPage() {
 
                   <div className="p-4 border rounded-lg space-y-3">
                     <h4 className="font-medium">
-                      5. Start the development server
+                      5. Set up environment variables
+                    </h4>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Copy the example environment file to create your local
+                      configuration:
+                    </p>
+                    <div className="relative group">
+                      <pre className="bg-muted p-3 rounded-lg">
+                        <code className="text-sm">
+                          cp .env.local.example .env.local
+                        </code>
+                      </pre>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                        onClick={() =>
+                          copyToClipboard("cp .env.local.example .env.local", 3)
+                        }
+                      >
+                        {copiedIndex === 3 ? (
+                          <CheckCircle2 className="h-4 w-4 text-green-600" />
+                        ) : (
+                          <Copy className="h-4 w-4" />
+                        )}
+                      </Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      This creates a local config file with your app&apos;s
+                      settings
+                    </p>
+                  </div>
+
+                  <div className="p-4 border rounded-lg space-y-3">
+                    <h4 className="font-medium">
+                      6. Start the development server
                     </h4>
                     <div className="relative group">
                       <pre className="bg-muted p-3 rounded-lg">
@@ -701,9 +736,9 @@ export default function GettingStartedPage() {
                         variant="ghost"
                         size="sm"
                         className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
-                        onClick={() => copyToClipboard("pnpm dev", 3)}
+                        onClick={() => copyToClipboard("pnpm dev", 4)}
                       >
-                        {copiedIndex === 3 ? (
+                        {copiedIndex === 4 ? (
                           <CheckCircle2 className="h-4 w-4 text-green-600" />
                         ) : (
                           <Copy className="h-4 w-4" />
