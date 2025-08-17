@@ -458,9 +458,9 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key`,
                     <p className="text-sm text-muted-foreground mb-2">
                       Edit the file at{" "}
                       <code className="bg-muted px-1.5 py-0.5 rounded text-xs">
-                        .cursor/mcp.json
+                        .cursor/example.mcp.json
                       </code>{" "}
-                      in your project:
+                      in your project (rename it to mcp.json):
                     </p>
                     <div className="relative group">
                       <pre className="bg-muted p-3 rounded-lg overflow-x-auto">
