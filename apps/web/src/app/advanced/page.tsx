@@ -212,13 +212,16 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key`,
                             <code className="bg-muted px-1 py-0.5 rounded text-xs">
                               http://localhost
                             </code>{" "}
-                            as an Authorized JavaScript Origins
+                            and{" "}
+                            <code className="bg-muted px-1 py-0.5 rounded text-xs">
+                              http://localhost:3000
+                            </code>{" "}
+                            as Authorized JavaScript Origins
                           </li>
                         </ul>
                       </li>
                       <li>
-                        7. Copy the <strong>Client ID</strong> and{" "}
-                        <strong>Client Secret</strong>
+                        7. Copy the <strong>Client ID</strong>
                       </li>
                     </ol>
                     <div className="mt-3">
@@ -288,8 +291,7 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key`,
                         2. Select <strong>Google</strong> from the list
                       </li>
                       <li>
-                        3. Paste your Google <strong>Client ID</strong> and{" "}
-                        <strong>Client Secret</strong>
+                        3. Paste your Google <strong>Client ID</strong>
                       </li>
                       <li>
                         4. Click <strong>Enable</strong> to activate Google
