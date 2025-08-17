@@ -23,6 +23,7 @@ import {
   Info,
   HelpCircle,
   Terminal,
+  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -469,11 +470,11 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key`,
       "command": "npx",
       "args": [
         "-y",
-        "@supabase/mcp-server@latest"
+        "@supabase/mcp-server@latest",
+        "--project-ref=your-project-id-here"
       ],
       "env": {
         "SUPABASE_ACCESS_TOKEN": "your-access-token-here",
-        "SUPABASE_PROJECT_ID": "your-project-id-here"
       }
     }
   }
@@ -545,8 +546,8 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key`,
                     </p>
                     <p className="text-xs text-muted-foreground mt-2">
                       💡 You can verify it&apos;s working by asking Cursor to
-                      &quot;list my Supabase tables&quot; or &quot;show recent
-                      migrations&quot;
+                      &quot;list my Supabase tables using mcp&quot; or
+                      &quot;show recent migrations&quot;
                     </p>
                   </div>
                 </div>
@@ -565,6 +566,114 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-key`,
                     </ul>
                   </AlertDescription>
                 </Alert>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Step 6: Use MCP to Set Up Database */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                Finish Database Setup: Apply Database Migrations with MCP
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                <div className="rounded-lg border p-6">
+                  <h4 className="mb-4 font-semibold text-indigo-900 dark:text-indigo-100">
+                    Test Your MCP Setup with Agent Mode
+                  </h4>
+                  <p className="mb-4 text-sm text-gray-700 dark:text-gray-300">
+                    Now that MCP is configured, let&apos;s use it to set up your
+                    database. Try this prompt in Cursor&apos;s Agent Mode
+                    (Cmd+Shift+I):
+                  </p>
+
+                  <div className="rounded-lg bg-gray-900 p-4">
+                    <code className="text-sm text-green-400">
+                      &quot;Run the MCP tooling needed to execute the SQL in our
+                      @migrations/ folder to set up our user table and payments
+                      table, including row level security and function
+                      triggers&quot;
+                    </code>
+                  </div>
+
+                  <div className="mt-4 space-y-3">
+                    <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                      The agent will:
+                    </p>
+                    <ul className="ml-4 space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-600">1.</span>
+                        <span>
+                          Read the migration files in{" "}
+                          <code className="rounded bg-gray-100 px-1 py-0.5 text-xs dark:bg-gray-800">
+                            apps/supabase/supabase/migrations/
+                          </code>
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-600">2.</span>
+                        <span>
+                          Apply the payments table migration with indexes and
+                          RLS policies
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-600">3.</span>
+                        <span>
+                          Apply the users table migration with auth trigger
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-600">4.</span>
+                        <span>
+                          Set up automatic timestamps and user profile sync
+                        </span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <span className="text-indigo-600">5.</span>
+                        <span>
+                          Generate TypeScript types from your new schema
+                        </span>
+                      </li>
+                    </ul>
+                    <p className="text-sm text-muted-foreground">
+                      Once this is done, you can check in your supabase browser
+                      in the Table Editor and verify that the payments and users
+                      tables were created.
+                    </p>
+                  </div>
+                </div>
+
+                <Alert>
+                  <Sparkles className="h-4 w-4 text-indigo-600" />
+                  <AlertDescription className="text-indigo-800 dark:text-indigo-200">
+                    <strong>Pro Tip:</strong> You can also ask the agent to:
+                    <ul className="mt-2 ml-4 space-y-1 text-sm">
+                      <li>
+                        • &quot;Check security advisories for my database&quot;
+                      </li>
+                      <li>• &quot;Show me the current database schema&quot;</li>
+                      <li>
+                        • &quot;Create a new migration for [feature]&quot;
+                      </li>
+                      <li>• &quot;Deploy an Edge Function for [task]&quot;</li>
+                    </ul>
+                  </AlertDescription>
+                </Alert>
+
+                <div className="rounded-lg border border-purple-100 bg-purple-50/50 p-4 dark:bg-purple-950/20">
+                  <p className="text-sm text-purple-800 dark:text-purple-200">
+                    <strong>What&apos;s happening behind the scenes?</strong>{" "}
+                    The MCP server is using the{" "}
+                    <code className="rounded bg-purple-100 px-1 py-0.5 text-xs dark:bg-purple-900">
+                      mcp_supabase_apply_migration
+                    </code>{" "}
+                    tool to execute your SQL directly on your Supabase project,
+                    creating tables with proper security and triggers.
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
