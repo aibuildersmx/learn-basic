@@ -24,7 +24,7 @@ const PurchaseButton = () => {
   return (
     <Button
       onClick={handleClick}
-      className="w-full"
+      className="w-fit"
       variant="outline"
       disabled={isLoading}
     >
